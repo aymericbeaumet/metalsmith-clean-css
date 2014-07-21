@@ -17,7 +17,7 @@ $ npm install metalsmith-clean-css
 {
   "plugins": {
     "metalsmith-clean-css": {
-      "pattern": "src/**/*.css"
+      "files": "src/**/*.css"
     }
   }
 }
