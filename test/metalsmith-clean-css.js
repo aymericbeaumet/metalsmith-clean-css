@@ -22,8 +22,8 @@ describe('metalsmith-clean-css', function() {
 
   it('should match any CSS file with the default pattern', function(done) {
     var files = {
-      'main.css':           { content: '  * { display: none; }  ' }
-    , 'long/path/main.css': { content: '  * { display: none; }  ' }
+      'main.css':           { content: '  * { display: none; }  ' },
+      'long/path/main.css': { content: '  * { display: none; }  ' }
     };
 
     cleanCSS()(files, null, function() {
