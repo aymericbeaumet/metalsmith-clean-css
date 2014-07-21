@@ -35,7 +35,9 @@ Metalsmith(__dirname)
     cleanCSS: {
       noRebase: true
     }
-  }));
+  })
+  .build()
+);
 ```
 
 #### files
