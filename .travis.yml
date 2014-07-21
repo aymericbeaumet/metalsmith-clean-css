@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+- '0.10'
+
+before_install:
+- npm install -g npm
+
+install:
+- npm install
+- cd ./example && npm install && cd -
+
+script:
+- node ./node_modules/mocha/bin/mocha
+- cd example && node ./build.js && cd -
+
+deploy:
+  provider: npm
+  email: aymeric@beaumet.me
+  api_key:
+    secure: TIG0PSQesifCSfwg1M8/Tb+BfkmfGuXuqE3813l32YhcCcbd/dt2BojYxKQRAk7pcC6dsaIGhp96e3efjVXATQGRxl/c3ZSQuLrP9pkXcFZZGWWxyU9o7uecmjvdymixv7T/Z8P7TlBeT/1FyImzr/aZHCFM3uyrnZVI+dppb8U=
+  on:
+    repo: aymericbeaumet/metalsmith-clean-css
+    all_branches: true
+    tags: true
