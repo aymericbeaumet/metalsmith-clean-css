@@ -10,9 +10,6 @@
     "type": "git",
     "url": "git://github.com/aymericbeaumet/metalsmith-clean-css.git"
   },
-  "scripts": {
-    "test": "mocha"
-  },
   "keywords": [
     "metalsmith",
     "plugin"

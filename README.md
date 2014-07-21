@@ -55,6 +55,9 @@ The configuration object will be passed as is.
 
 ## Changelog
 
+* 0.0.2
+  * Fix the example
+
 * 0.0.1
   * Working plugin
 
