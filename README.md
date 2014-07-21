@@ -31,7 +31,7 @@ var cleanCSS = require('metalsmith-clean-css');
 
 Metalsmith(__dirname)
   .use(cleanCSS({
-    files: "src/**/*.css",
+    files: 'src/**/*.css',
     cleanCSS: {
       noRebase: true
     }
