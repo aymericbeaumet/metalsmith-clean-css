@@ -1,0 +1,32 @@
+{
+  "name": "metalsmith-clean-css",
+  "version": "0.0.0",
+  "description": "A Metalsmith plugin to minify CSS files.",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/aymericbeaumet/metalsmith-clean-css.git"
+  },
+  "keywords": [
+    "metalsmith",
+    "plugin"
+  ],
+  "author": "Aymeric Beaumet <aymeric@beaumet.me> (http://beaumet.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aymericbeaumet/metalsmith-clean-css/issues"
+  },
+  "homepage": "https://github.com/aymericbeaumet/metalsmith-clean-css",
+  "dependencies": {
+    "clean-css": "^2.2.8",
+    "minimatch": "^0.4.0"
+  },
+  "devDependencies": {
+    "metalsmith": "~0.8.0",
+    "mocha": "~1.20.1",
+    "chai": "~1.9.1"
+  }
+}
