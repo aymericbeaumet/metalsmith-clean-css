@@ -57,6 +57,9 @@ The configuration object will be passed as is.
 
 ## Changelog
 
+* 1.0.0
+  * Bump stable
+
 * 0.0.3
   * Fix an issue with file content
 
