@@ -33,7 +33,7 @@ Metalsmith(__dirname)
   .use(cleanCSS({
     files: 'src/**/*.css',
     cleanCSS: {
-      noRebase: true
+      rebase: true
     }
   }))
   .build()
@@ -51,7 +51,7 @@ directly passed to [minimatch](https://github.com/isaacs/minimatch).
 Type: `Object`
 Default: `{}`
 
-Allow you to directly manipulate the [CleanCSS
+Allow you to directly manipulate the [Clean-css
 API](https://github.com/GoalSmashers/clean-css#how-to-use-clean-css-programmatically).
 The configuration object will be passed as is.
 
