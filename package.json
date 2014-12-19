@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/aymericbeaumet/metalsmith-clean-css",
   "dependencies": {
-    "clean-css": "^2.2.8",
+    "clean-css": "^3.0.0",
     "minimatch": "^0.4.0"
   },
   "devDependencies": {
