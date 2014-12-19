@@ -2,7 +2,6 @@
 
 var chai = require('chai');
 
-var Metalsmith = require('metalsmith');
 var cleanCSS = require('../lib');
 
 var expect = chai.expect;
