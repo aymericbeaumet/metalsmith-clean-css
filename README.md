@@ -57,6 +57,9 @@ The configuration object will be passed as is.
 
 ## Changelog
 
+* 2.0.0
+  * Update Clean-css
+
 * 1.0.0
   * Bump stable
 
