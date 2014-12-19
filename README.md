@@ -1,4 +1,4 @@
-# metalsmith-clean-css [![Build Status](https://travis-ci.org/aymericbeaumet/metalsmith-clean-css.svg?branch=master)](https://travis-ci.org/aymericbeaumet/metalsmith-clean-css) [![NPM version](https://badge.fury.io/js/metalsmith-clean-css.svg)](http://badge.fury.io/js/metalsmith-clean-css)
+# metalsmith-clean-css [![Build Status](https://img.shields.io/travis/aymericbeaumet/metalsmith-clean-css.svg?style=flat)](https://travis-ci.org/aymericbeaumet/metalsmith-clean-css) [![NPM version](https://img.shields.io/npm/v/metalsmith-clean-css.svg?style=flat)](https://www.npmjs.com/package/metalsmith-clean-css)
 
 A Metalsmith plugin to minify CSS files using
 [clean-css](https://github.com/GoalSmashers/clean-css).
