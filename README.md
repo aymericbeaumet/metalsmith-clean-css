@@ -46,7 +46,7 @@ Default: `**/*.css`
 
 This option defines which files are concerned by the minification. This string
 is directly passed to [minimatch](https://github.com/isaacs/minimatch). Each
-file matching the pattern will be minified using
+file matching the pattern will be minified in place using
 [Clean-css](https://github.com/jakubpawlowicz/clean-css).
 
 #### cleanCSS
