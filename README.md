@@ -44,8 +44,10 @@ Metalsmith(__dirname)
 Type: `String`
 Default: `**/*.css`
 
-This define which files pattern are concerned by the minification. It is
-directly passed to [minimatch](https://github.com/isaacs/minimatch).
+This option defines which files are concerned by the minification. This string
+is directly passed to [minimatch](https://github.com/isaacs/minimatch). Each
+file matching the pattern will be minified using
+[Clean-css](https://github.com/jakubpawlowicz/clean-css).
 
 #### cleanCSS
 Type: `Object`
