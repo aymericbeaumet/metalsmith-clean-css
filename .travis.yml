@@ -1,24 +1,31 @@
 language: node_js
 node_js:
-- '0.10'
-
-before_install:
-- npm install -g npm
+  - 4
+  - 5
 
 install:
-- npm install
-- cd ./example && npm install && cd -
+  - npm install
+  - pushd example && npm install && popd
 
 script:
-- node ./node_modules/mocha/bin/mocha
-- cd example && node ./build.js && cd -
+  - node --version && npm --version
+  - npm test
+  - pushd example && node build.js && popd
 
-deploy:
-  provider: npm
-  email: aymeric@beaumet.me
-  api_key:
-    secure: TIG0PSQesifCSfwg1M8/Tb+BfkmfGuXuqE3813l32YhcCcbd/dt2BojYxKQRAk7pcC6dsaIGhp96e3efjVXATQGRxl/c3ZSQuLrP9pkXcFZZGWWxyU9o7uecmjvdymixv7T/Z8P7TlBeT/1FyImzr/aZHCFM3uyrnZVI+dppb8U=
-  on:
-    repo: aymericbeaumet/metalsmith-clean-css
-    all_branches: true
-    tags: true
+after_success:
+  - npm run codeclimate
+
+###
+
+addons:
+  code_climate:
+    repo_token:
+      secure: HXQ374aa+NZRavvxaUEV+txh+kH/ZRPa1PmE4f3cVlv0KkyaHaf9rFc3ivu8hUvbWHgbysACH/pGJPM4C9DQII/lTr8r6Hn8JBri3J6Slj1y7bHbM0y/xOi1CBgjp13f8clLhBhvZQ+2GpGXI/yUzpcIheEWPj8BbgI8M6aJWWk=
+
+git:
+  depth: 10
+
+matrix:
+  fast_finish: true
+
+sudo: false

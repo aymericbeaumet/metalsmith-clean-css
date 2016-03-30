@@ -1,9 +1,8 @@
-'use strict';
+'use strict'
 
-var Metalsmith = require('metalsmith');
-var cleanCSS = require('../lib'); // require('metalsmith-clean-css');
+var Metalsmith = require('metalsmith')
+var cleanCSS = require('..') // require('metalsmith-clean-css')
 
 Metalsmith(__dirname)
   .use(cleanCSS())
-  .build(function(err) { if (err) { throw err; } })
-;
+  .build(function (error) { if (error) { throw error } })

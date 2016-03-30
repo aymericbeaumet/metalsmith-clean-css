@@ -1,6 +1,6 @@
 {
   "private": true,
   "dependencies": {
-    "metalsmith": "~0.8.0"
+    "metalsmith": "2.1.0"
   }
 }

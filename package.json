@@ -1,32 +1,27 @@
 {
   "name": "metalsmith-clean-css",
   "version": "2.0.0",
-  "description": "A Metalsmith plugin to minify CSS files.",
-  "main": "lib/index.js",
-  "directories": {
-    "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/aymericbeaumet/metalsmith-clean-css.git"
-  },
+  "description": "A Metalsmith plugin to minify CSS files",
   "keywords": [
     "metalsmith",
     "plugin"
   ],
-  "author": "Aymeric Beaumet <aymeric@beaumet.me> (http://beaumet.me/)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/aymericbeaumet/metalsmith-clean-css/issues"
-  },
-  "homepage": "https://github.com/aymericbeaumet/metalsmith-clean-css",
+  "author": "Aymeric Beaumet <aymeric@beaumet.me>",
+  "license": "CC0-1.0",
+  "main": "lib",
   "dependencies": {
-    "clean-css": "^3.0.0",
-    "minimatch": "^0.4.0"
+    "async": "2.0.0-rc.2",
+    "clean-css": "3.4.10",
+    "minimatch": "3.0.0"
   },
   "devDependencies": {
-    "metalsmith": "~0.8.0",
-    "mocha": "~1.20.1",
-    "chai": "~1.9.1"
+    "codeclimate-test-reporter": "0.3.1",
+    "istanbul": "0.4.2",
+    "standard": "6.0.8",
+    "tape": "4.5.1"
+  },
+  "scripts": {
+    "test": "standard && istanbul cover node_modules/tape/bin/tape -- 'test/**/*.js' && istanbul check-coverage --statements 100 --functions 100 --branches 100 --lines 100",
+    "codeclimate": "codeclimate-test-reporter < coverage/lcov.info"
   }
 }
