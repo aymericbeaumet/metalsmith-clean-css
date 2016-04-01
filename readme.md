@@ -66,6 +66,9 @@ The configuration object will be passed as is.
 
 ## Changelog
 
+* 3.0.1
+  * Update options parsing
+
 * 3.0.0
   * Add AppVeyor
   * Add EditorConfig
