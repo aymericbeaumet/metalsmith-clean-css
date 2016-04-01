@@ -26,6 +26,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/aymericbeaumet/metalsmith-clean-css"
+    "url": "https://github.com/aymericbeaumet/metalsmith-clean-css.git"
   }
 }
