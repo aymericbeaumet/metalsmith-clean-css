@@ -20,10 +20,10 @@ after_success:
 addons:
   code_climate:
     repo_token:
-      secure: HXQ374aa+NZRavvxaUEV+txh+kH/ZRPa1PmE4f3cVlv0KkyaHaf9rFc3ivu8hUvbWHgbysACH/pGJPM4C9DQII/lTr8r6Hn8JBri3J6Slj1y7bHbM0y/xOi1CBgjp13f8clLhBhvZQ+2GpGXI/yUzpcIheEWPj8BbgI8M6aJWWk=
+      secure: oBSd83e4ZR44kMVxk5c1RJvHjrkZutT1dEYpvdT6F2VyPpmcpMBfqsScDFplRgr/gUT32exAge0DKgE0+5kiM/k+KY5maHRm8HFpKasHZJJUBl1b1epAqUCM69yto+4pgazKtD4Ow/fDZwuXpZCCRICvXRYWME9k0UCXI9HUIHA=
 
 git:
-  depth: 10
+  depth: 1
 
 matrix:
   fast_finish: true
