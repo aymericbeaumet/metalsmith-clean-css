@@ -66,6 +66,9 @@ The configuration object will be passed as is.
 
 ## Changelog
 
+* 3.0.2
+  * Switch test suite to nyc + ava
+
 * 3.0.1
   * Update options parsing
 
