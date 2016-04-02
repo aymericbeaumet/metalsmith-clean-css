@@ -66,6 +66,9 @@ The configuration object will be passed as is.
 
 ## Changelog
 
+* 3.1.0
+  * Bump clean-css@3.4.11
+
 * 3.0.2
   * Switch test suite to nyc + ava
 
