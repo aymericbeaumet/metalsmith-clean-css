@@ -47,6 +47,14 @@ Metalsmith(__dirname)
 ;
 ```
 
+#### cleanCSS
+Type: `Object`
+Default: `{}`
+
+Allow you to directly manipulate the [clean-css
+API](https://github.com/GoalSmashers/clean-css#how-to-use-clean-css-programmatically).
+The configuration object will be passed as is.
+
 #### files
 Type: `String`
 Default: `**/*.css`
@@ -56,18 +64,33 @@ is directly passed to [minimatch](https://github.com/isaacs/minimatch). Each
 file matching the pattern will be minified in place using
 [clean-css](https://github.com/jakubpawlowicz/clean-css).
 
-#### cleanCSS
-Type: `Object`
-Default: `{}`
+#### sourceMaps
+Type: `Boolean`
+Default: `false`
 
-Allow you to directly manipulate the [clean-css
-API](https://github.com/GoalSmashers/clean-css#how-to-use-clean-css-programmatically).
-The configuration object will be passed as is.
+Whether the source maps should be kept after the minification. You can force to
+inline the source maps (without creating an extra `.map` file in the build) by
+setting `options.sourceMapsInlineSources` to `true`.
+
+This plugin supports the forwarding of existing source maps, it will first look
+for a `sourceMap` property on the file, then for `.map` file, and finally
+fallback to inline source maps.
+
+#### sourceMapsInlineSources
+Type: `Boolean`
+Default: `false`
+
+Whether the source maps should be inlined in each CSS file. If set to `true` the
+source maps will be inlined in each file, and no extra `.map` file will be
+generated.
 
 ## Changelog
 
-* 3.1.0
+* 4.0.0
+  * Only supports Node 4+
   * Bump clean-css@3.4.11
+  * Support input source maps as `file.sourceMap`, `${filepath}.map` and inline
+  * Support to generate source maps as `file.sourceMap` and `${filepath}.map`
 
 * 3.0.2
   * Switch test suite to nyc + ava
