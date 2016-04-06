@@ -11,7 +11,7 @@
   "main": "lib",
   "dependencies": {
     "async": "2.0.0-rc.2",
-    "clean-css": "3.4.10",
+    "clean-css": "3.4.11",
     "minimatch": "3.0.0"
   },
   "devDependencies": {
