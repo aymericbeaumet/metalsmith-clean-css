@@ -64,7 +64,7 @@ is directly passed to [minimatch](https://github.com/isaacs/minimatch). Each
 file matching the pattern will be minified in place using
 [clean-css](https://github.com/jakubpawlowicz/clean-css).
 
-#### sourceMaps
+#### sourceMap
 Type: `Boolean`
 Default: `false`
 
