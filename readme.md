@@ -70,13 +70,13 @@ Default: `false`
 
 Whether the source maps should be kept after the minification. You can force to
 inline the source maps (without creating an extra `.map` file in the build) by
-setting `options.sourceMapsInlineSources` to `true`.
+setting `options.sourceMapInlineSources` to `true`.
 
 This plugin supports the forwarding of existing source maps, it will first look
 for a `sourceMap` property on the file, then for `.map` file, and finally
 fallback to inline source maps.
 
-#### sourceMapsInlineSources
+#### sourceMapInlineSources
 Type: `Boolean`
 Default: `false`
 
