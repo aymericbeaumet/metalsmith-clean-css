@@ -86,6 +86,9 @@ generated.
 
 ## Changelog
 
+* 5.0.0
+  * Expect and produce a `Buffer` for the `contents` key (breaking)
+
 * 4.0.0
   * Only supports Node 4+
   * Bump clean-css@3.4.11
