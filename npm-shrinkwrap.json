@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-clean-css",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "dependencies": {
     "amdefine": {
       "version": "1.0.0",
