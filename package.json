@@ -12,7 +12,7 @@
   "dependencies": {
     "async": "2.0.0-rc.6",
     "clean-css": "3.4.17",
-    "minimatch": "3.0.0"
+    "minimatch": "3.0.3"
   },
   "devDependencies": {
     "ava": "0.15.2",
