@@ -10,8 +10,8 @@
   "license": "CC0-1.0",
   "main": "lib",
   "dependencies": {
-    "async": "2.0.0-rc.6",
-    "clean-css": "3.4.17",
+    "async": "2.1.4",
+    "clean-css": "3.4.23",
     "minimatch": "3.0.3"
   },
   "devDependencies": {
