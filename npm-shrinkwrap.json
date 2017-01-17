@@ -48,9 +48,9 @@
       "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.13.1.tgz"
     },
     "minimatch": {
-      "version": "3.0.0",
-      "from": "minimatch@3.0.0",
-      "resolved": "https://registry.npmjs.org/minimatch/-/minimatch-3.0.0.tgz"
+      "version": "3.0.3",
+      "from": "minimatch@3.0.3",
+      "resolved": "https://registry.npmjs.org/minimatch/-/minimatch-3.0.3.tgz"
     },
     "source-map": {
       "version": "0.4.4",
