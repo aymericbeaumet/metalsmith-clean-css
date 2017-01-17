@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-clean-css",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "A Metalsmith plugin to minify CSS files",
   "keywords": [
     "metalsmith",
