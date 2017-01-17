@@ -86,6 +86,9 @@ generated.
 
 ## Changelog
 
+* 5.0.1
+  * Bump dependencies
+
 * 5.0.0
   * Expect and produce a `Buffer` for the `contents` key (breaking)
 
