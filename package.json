@@ -10,15 +10,15 @@
   "license": "CC0-1.0",
   "main": "lib",
   "dependencies": {
-    "async": "2.1.4",
-    "clean-css": "3.4.23",
+    "async": "2.4.0",
+    "clean-css": "4.0.12",
     "minimatch": "3.0.3"
   },
   "devDependencies": {
-    "ava": "0.15.2",
-    "codeclimate-test-reporter": "0.3.2",
-    "nyc": "6.4.4",
-    "standard": "7.1.2"
+    "ava": "0.19.1",
+    "codeclimate-test-reporter": "0.4.1",
+    "nyc": "10.3.0",
+    "standard": "10.0.2"
   },
   "scripts": {
     "test": "standard && nyc --reporter=html --check-coverage --branches 100 --functions 100 --lines 100 --statements 100 ava",
