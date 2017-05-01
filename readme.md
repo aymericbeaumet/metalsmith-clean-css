@@ -7,6 +7,8 @@
 
 # metalsmith-clean-css
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/aymericbeaumet/metalsmith-clean-css.svg)](https://greenkeeper.io/)
+
 A Metalsmith plugin to minify CSS files.
 
 ## Installation
