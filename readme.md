@@ -9,19 +9,41 @@
 
 A Metalsmith plugin to minify CSS files.
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Metalsmith CLI](#metalsmith-cli)
+  - [JavaScript API](#javascript-api)
+    - [cleanCSS](#cleancss)
+    - [files](#files)
+    - [sourceMap](#sourcemap)
+    - [sourceMapInlineSources](#sourcemapinlinesources)
+- [Changelog](#changelog)
+- [License](#license)
+- [Developing](#developing)
+- [Releasing](#releasing)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Installation
 
-```javascript
-$ npm install metalsmith-clean-css
+```sh
+npm install metalsmith-clean-css clean-css
+# yarn add metalsmith-clean-css clean-css
 ```
+
+`metalsmith-clean-css` is compatible with `clean-css@4.1.9` and later versions.
 
 ## Usage
 
 This plugin relies on [clean-css](https://github.com/jakubpawlowicz/clean-css).
 
-### CLI
+### Metalsmith CLI
 
-```javascript
+```js
 {
   "plugins": {
     "metalsmith-clean-css": {
@@ -31,9 +53,9 @@ This plugin relies on [clean-css](https://github.com/jakubpawlowicz/clean-css).
 }
 ```
 
-### JavaScript
+### JavaScript API
 
-```javascript
+```js
 var MetalSmith = require('metalsmith');
 var cleanCSS = require('metalsmith-clean-css');
 
@@ -135,3 +157,19 @@ generated.
 
 To the extent possible under law, [Aymeric Beaumet](https://aymericbeaumet.com)
 has waived all copyright and related or neighboring rights to this work.
+
+## Developing
+
+```sh
+nvm use
+yarn
+yarn test
+# yarn test:watch
+```
+
+## Releasing
+
+```sh
+# commit changes
+npm run release
+```

@@ -1,31 +1,32 @@
 {
   "name": "metalsmith-clean-css",
-  "version": "5.0.1",
-  "description": "A Metalsmith plugin to minify CSS files",
-  "keywords": [
-    "metalsmith",
-    "plugin"
-  ],
+  "private": true,
   "author": "Aymeric Beaumet <aymeric@beaumet.me>",
+  "extends": [
+    "config:js-lib",
+    "schedule:weekends",
+    ":automergeMinor",
+    ":automergeBranchPush",
+    ":semanticCommits",
+    ":rebaseStalePrs",
+    ":timezone(Europe/Paris)"
+  ],
+  "workspaces": [
+    "packages/*"
+  ],
   "license": "CC0-1.0",
-  "main": "lib",
-  "dependencies": {
-    "async": "2.1.4",
-    "clean-css": "3.4.23",
-    "minimatch": "3.0.3"
-  },
   "devDependencies": {
-    "ava": "0.15.2",
-    "codeclimate-test-reporter": "0.3.2",
-    "nyc": "6.4.4",
-    "standard": "7.1.2"
+    "ava": "0.25.0",
+    "codeclimate-test-reporter": "0.5.0",
+    "nyc": "11.4.1",
+    "standard": "10.0.3"
   },
   "scripts": {
-    "test": "standard && nyc --reporter=html --check-coverage --branches 100 --functions 100 --lines 100 --statements 100 ava",
-    "codeclimate": "nyc report --reporter=text-lcov | codeclimate-test-reporter"
+    "build-example": "node packages/metalsmith-clean-css-example/build.js",
+    "test": "standard && nyc ava packages/metalsmith-clean-css/test && npm run build-example",
+    "test:watch": "ava packages/metalsmith-clean-css/test --watch",
+    "codeclimate": "nyc report --reporter=text-lcov | codeclimate-test-reporter",
+    "release": "yarn test && cd packages/metalsmith-clean-css && np --no-publish && npm publish && git push && git push --tags"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aymericbeaumet/metalsmith-clean-css.git"
-  }
+  "repository": "aymericbeaumet/metalsmith-clean-css"
 }
