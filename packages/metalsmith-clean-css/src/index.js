@@ -37,7 +37,7 @@ module.exports = (options) => {
     if (options.sourceMap) {
       options.cleanCSS.sourceMap = true
       options.cleanCSS.sourceMapInlineSources = options.sourceMapInlineSources
-      options.cleanCSS.target = options.cleanCSS.target || metalsmith._directory
+      options.cleanCSS.rebaseTo = options.cleanCSS.rebaseTo || metalsmith._directory
     }
     const cleanCSS = new CleanCSS(options.cleanCSS)
     // Loop over all the files metalsmith knows of
@@ -55,16 +55,16 @@ module.exports = (options) => {
           styles: file.contents.toString(),
           sourceMap: file.sourceMap || sourceMapFile.contents.toString() || undefined
         }
-      }, (error, minified) => {
-        if (error) {
-          return callback(error)
+      }, (error, output) => {
+        if (output.errors.length > 0 || error !== null) {
+          return callback(output.errors.length > 0 ? output.errors : error)
         }
         // Update the file contents with its minified version
-        file.contents = new Buffer(minified.styles)
+        file.contents = Buffer.from(output.styles)
         // Deal with the source map
-        if (options.sourceMap && minified.sourceMap) {
+        if (options.sourceMap && output.sourceMap) {
           // Expose the source map (so that it could be used by another plugin)
-          file.sourceMap = sourceMapFile.contents = new Buffer(JSON.stringify(minified.sourceMap))
+          file.sourceMap = sourceMapFile.contents = Buffer.from(JSON.stringify(output.sourceMap))
           // Expose the source map as a .map file if asked not to inline it
           if (!options.sourceMapInlineSources) {
             files[sourceMapFilepath] = sourceMapFile

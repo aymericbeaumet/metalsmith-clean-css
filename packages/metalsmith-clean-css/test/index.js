@@ -1,6 +1,6 @@
 'use strict'
 
-const cleanCSS = require('..')
+const cleanCSS = require('../src')
 const path = require('path')
 const test = require('ava')
 
@@ -8,14 +8,14 @@ test.cb('metalsmith-clean-css should not match any file if an empty string is gi
   t.plan(2)
   const files = {
     'main.css': {
-      contents: new Buffer('  * { display: none }  ')
+      contents: Buffer.from('  * { display: none }  ')
     }
   }
   cleanCSS({ files: '' })(files, metalsmithFixture(), (errors) => {
     t.ifError(errors)
     t.deepEqual(files, {
       'main.css': {
-        contents: new Buffer('  * { display: none }  ')
+        contents: Buffer.from('  * { display: none }  ')
       }
     })
     t.end()
@@ -26,20 +26,20 @@ test.cb('metalsmith-clean-css should match any CSS file with the default pattern
   t.plan(2)
   const files = {
     'main.css': {
-      contents: new Buffer('  * { display: none }  ')
+      contents: Buffer.from('  * { display: none }  ')
     },
     'deep/path/main.css': {
-      contents: new Buffer('  * { display: none }  ')
+      contents: Buffer.from('  * { display: none }  ')
     }
   }
   cleanCSS()(files, metalsmithFixture(), (errors) => {
     t.ifError(errors)
     t.deepEqual(files, {
       'main.css': {
-        contents: new Buffer('*{display:none}')
+        contents: Buffer.from('*{display:none}')
       },
       'deep/path/main.css': {
-        contents: new Buffer('*{display:none}')
+        contents: Buffer.from('*{display:none}')
       }
     })
     t.end()
@@ -50,20 +50,20 @@ test.cb('metalsmith-clean-css should only match the desired CSS files if a patte
   t.plan(2)
   const files = {
     'main.css': {
-      contents: new Buffer('  * { display: none }  ')
+      contents: Buffer.from('  * { display: none }  ')
     },
     'deep/path/main.css': {
-      contents: new Buffer('  * { display: none }  ')
+      contents: Buffer.from('  * { display: none }  ')
     }
   }
   cleanCSS({ files: '*.css' })(files, metalsmithFixture(), (errors) => {
     t.ifError(errors)
     t.deepEqual(files, {
       'main.css': {
-        contents: new Buffer('*{display:none}')
+        contents: Buffer.from('*{display:none}')
       },
       'deep/path/main.css': {
-        contents: new Buffer('  * { display: none }  ')
+        contents: Buffer.from('  * { display: none }  ')
       }
     })
     t.end()
@@ -73,13 +73,13 @@ test.cb('metalsmith-clean-css should only match the desired CSS files if a patte
 test.cb('metalsmith-clean-css should correctly pass options to clean-css', (t) => {
   t.plan(2)
   const files = {
-    'main.css': { contents: new Buffer('/*! special comment */') }
+    'main.css': { contents: Buffer.from('/*! special comment */') }
   }
-  cleanCSS({ cleanCSS: { keepSpecialComments: 0 } })(files, metalsmithFixture(), (errors) => {
+  cleanCSS({ cleanCSS: { level: {1: {specialComments: 0}} } })(files, metalsmithFixture(), (errors) => {
     t.ifError(errors)
     t.deepEqual(files, {
       'main.css': {
-        contents: new Buffer('')
+        contents: Buffer.from('')
       }
     })
     t.end()
@@ -89,9 +89,9 @@ test.cb('metalsmith-clean-css should correctly pass options to clean-css', (t) =
 test.cb('metalsmith-clean-css should forward clean-css errors', (t) => {
   t.plan(2)
   const files = {
-    'main.css': { contents: new Buffer('@import url(https://not/found);') }
+    'main.css': { contents: Buffer.from('@import url(https://not/found);') }
   }
-  cleanCSS()(files, metalsmithFixture(), (errors) => {
+  cleanCSS({cleanCSS: {inline: 'all'}})(files, metalsmithFixture(), (errors) => {
     t.true(Array.isArray(errors))
     t.deepEqual(errors.length, 1)
     t.end()
@@ -101,7 +101,7 @@ test.cb('metalsmith-clean-css should forward clean-css errors', (t) => {
 test.cb('metalsmith-clean-css should not generate source maps by default', (t) => {
   t.plan(3)
   const files = {
-    'main.css': { contents: new Buffer(' * { display: none } ') }
+    'main.css': { contents: Buffer.from(' * { display: none } ') }
   }
   cleanCSS({})(files, metalsmithFixture(), (errors) => {
     t.ifError(errors)
@@ -114,7 +114,7 @@ test.cb('metalsmith-clean-css should not generate source maps by default', (t) =
 test.cb('metalsmith-clean-css should expose both a `sourceMap` property and a `.map` file', (t) => {
   t.plan(3)
   const files = {
-    'main.css': { contents: new Buffer(' * { display: none } ') }
+    'main.css': { contents: Buffer.from(' * { display: none } ') }
   }
   cleanCSS({ sourceMap: true })(files, metalsmithFixture(), (errors) => {
     t.ifError(errors)
@@ -127,7 +127,7 @@ test.cb('metalsmith-clean-css should expose both a `sourceMap` property and a `.
 test.cb('metalsmith-clean-css should not expose a .map when `options.sourceMapInlineSources` is set', (t) => {
   t.plan(3)
   const files = {
-    'main.css': { contents: new Buffer(' * { display: none } ') }
+    'main.css': { contents: Buffer.from(' * { display: none } ') }
   }
   cleanCSS({ sourceMap: true, sourceMapInlineSources: true })(files, metalsmithFixture(), (errors) => {
     t.ifError(errors)

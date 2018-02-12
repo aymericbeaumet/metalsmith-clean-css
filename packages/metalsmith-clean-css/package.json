@@ -1,0 +1,20 @@
+{
+  "name": "metalsmith-clean-css",
+  "version": "5.0.1",
+  "description": "A Metalsmith plugin to minify CSS files",
+  "keywords": [
+    "metalsmith",
+    "plugin"
+  ],
+  "author": "Aymeric Beaumet <aymeric@beaumet.me>",
+  "license": "CC0-1.0",
+  "main": "src",
+  "dependencies": {
+    "async": "2.6.0",
+    "minimatch": "3.0.4"
+  },
+  "peerDependencies": {
+    "clean-css": "^4.1.9"
+  },
+  "repository": "aymericbeaumet/metalsmith-clean-css"
+}
