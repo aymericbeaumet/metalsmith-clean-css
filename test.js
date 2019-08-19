@@ -17,8 +17,8 @@ test.cb(
         contents: Buffer.from('  * { display: none }  '),
       },
     }
-    metalsmithCleanCss({ files: '' })(files, metalsmithFixture(), error => {
-      t.falsy(error)
+    metalsmithCleanCss({ files: '' })(files, metalsmithFixture(), errors => {
+      t.falsy(errors)
       t.deepEqual(files, {
         'main.css': {
           contents: Buffer.from('  * { display: none }  '),
@@ -41,8 +41,8 @@ test.cb(
         contents: Buffer.from('  * { display: none }  '),
       },
     }
-    metalsmithCleanCss()(files, metalsmithFixture(), error => {
-      t.falsy(error)
+    metalsmithCleanCss()(files, metalsmithFixture(), errors => {
+      t.falsy(errors)
       t.deepEqual(files, {
         'main.css': {
           contents: Buffer.from('*{display:none}'),
@@ -71,8 +71,8 @@ test.cb(
     metalsmithCleanCss({ files: '*.css' })(
       files,
       metalsmithFixture(),
-      error => {
-        t.falsy(error)
+      errors => {
+        t.falsy(errors)
         t.deepEqual(files, {
           'main.css': {
             contents: Buffer.from('*{display:none}'),
@@ -97,8 +97,8 @@ test.cb(
     metalsmithCleanCss({ cleanCSS: { level: { 1: { specialComments: 0 } } } })(
       files,
       metalsmithFixture(),
-      error => {
-        t.falsy(error)
+      errors => {
+        t.falsy(errors)
         t.deepEqual(files, {
           'main.css': {
             contents: Buffer.from(''),
@@ -110,7 +110,7 @@ test.cb(
   }
 )
 
-test.cb('metalsmith-clean-css should forward clean-css error', t => {
+test.cb('metalsmith-clean-css should forward clean-css errors', t => {
   t.plan(2)
   const files = {
     'main.css': { contents: Buffer.from('@import url(https://not/found);') },
@@ -118,9 +118,9 @@ test.cb('metalsmith-clean-css should forward clean-css error', t => {
   metalsmithCleanCss({ cleanCSS: { inline: 'all' } })(
     files,
     metalsmithFixture(),
-    error => {
-      t.true(Array.isArray(error))
-      t.deepEqual(error.length, 1)
+    errors => {
+      t.true(Array.isArray(errors))
+      t.deepEqual(errors.length, 1)
       t.end()
     }
   )
@@ -133,8 +133,8 @@ test.cb(
     const files = {
       'main.css': { contents: Buffer.from(' * { display: none } ') },
     }
-    metalsmithCleanCss({})(files, metalsmithFixture(), error => {
-      t.falsy(error)
+    metalsmithCleanCss({})(files, metalsmithFixture(), errors => {
+      t.falsy(errors)
       t.false(Boolean(files['main.css'].sourceMap))
       t.deepEqual(Object.keys(files), ['main.css'])
       t.end()
@@ -152,8 +152,8 @@ test.cb(
     metalsmithCleanCss({ sourceMap: true })(
       files,
       metalsmithFixture(),
-      error => {
-        t.falsy(error)
+      errors => {
+        t.falsy(errors)
         t.true(Boolean(files['main.css'].sourceMap))
         t.deepEqual(Object.keys(files), ['main.css', 'main.css.map'])
         t.end()
@@ -172,8 +172,8 @@ test.cb(
     metalsmithCleanCss({ sourceMap: true, sourceMapInlineSources: true })(
       files,
       metalsmithFixture(),
-      error => {
-        t.falsy(error)
+      errors => {
+        t.falsy(errors)
         t.true(Boolean(files['main.css'].sourceMap))
         t.deepEqual(Object.keys(files), ['main.css'])
         t.end()
