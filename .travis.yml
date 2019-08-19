@@ -1,17 +1,8 @@
+os:
+  - linux
+  - osx
+  - windows
 language: node_js
-before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.3.2
-  - export PATH=$HOME/.yarn/bin:$PATH
 node_js:
-  - 4
-  - 6
-  - 8
-  - 9
-
-after_success:
-  - yarn codeclimate
-
-addons:
-  code_climate:
-    repo_token:
-      secure: oBSd83e4ZR44kMVxk5c1RJvHjrkZutT1dEYpvdT6F2VyPpmcpMBfqsScDFplRgr/gUT32exAge0DKgE0+5kiM/k+KY5maHRm8HFpKasHZJJUBl1b1epAqUCM69yto+4pgazKtD4Ow/fDZwuXpZCCRICvXRYWME9k0UCXI9HUIHA=
+  - node
+  - lts/*
