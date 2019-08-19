@@ -1,0 +1,90 @@
+const async = require('async')
+const CleanCSS = require('clean-css')
+const minimatch = require('minimatch')
+
+/**
+ * A Metalsmith plugin to minify CSS files.
+ * @param {Object} options - the options object as defined below
+ * @param {String=} options.files - the pattern to match the CSS files to minify
+ * @param {Object=} options.cleanCSS - the options to pass to clean-css
+ * @return {Function} - the Metalsmith plugin
+ */
+module.exports = options => {
+  options = typeof options === 'object' && options ? options : {}
+
+  options.cleanCSS =
+    typeof options.cleanCSS === 'object' && options.cleanCSS
+      ? options.cleanCSS
+      : {}
+
+  options.pattern =
+    typeof options.files === 'string' ? options.files : '**/*.css'
+
+  options.sourceMap =
+    typeof options.sourceMap === 'boolean' ? options.sourceMap : false
+
+  options.sourceMapInlineSources =
+    typeof options.sourceMapInlineSources === 'boolean'
+      ? options.sourceMapInlineSources
+      : false
+
+  return (files, metalsmith, done) => {
+    // Instanciate the clean-css engine (with potential source maps support)
+    if (options.sourceMap) {
+      options.cleanCSS.sourceMap = true
+      options.cleanCSS.sourceMapInlineSources = options.sourceMapInlineSources
+      options.cleanCSS.rebaseTo =
+        options.cleanCSS.rebaseTo || metalsmith._directory
+    }
+
+    const cleanCSS = new CleanCSS(options.cleanCSS)
+    // Loop over all the files metalsmith knows of
+    async.each(
+      Object.keys(files),
+      (filepath, callback) => {
+        const file = files[filepath]
+        const sourceMapFilepath = `${filepath}.map`
+        const sourceMapFile = files[sourceMapFilepath] || { contents: '' }
+        // Check whether the current file is concerned by the minification
+        if (!minimatch(filepath, options.pattern)) {
+          return callback()
+        }
+
+        // Minify the file
+        cleanCSS.minify(
+          {
+            [filepath]: {
+              styles: file.contents.toString(),
+              sourceMap:
+                file.sourceMap ||
+                sourceMapFile.contents.toString() ||
+                undefined,
+            },
+          },
+          (error, output) => {
+            if (output.errors.length > 0 || error !== null) {
+              return callback(output.errors.length > 0 ? output.errors : error)
+            }
+
+            // Update the file contents with its minified version
+            file.contents = Buffer.from(output.styles)
+            // Deal with the source map
+            if (options.sourceMap && output.sourceMap) {
+              // Expose the source map (so that it could be used by another plugin)
+              const sourceMap = Buffer.from(JSON.stringify(output.sourceMap))
+              file.sourceMap = sourceMap
+              sourceMapFile.contents = sourceMap
+              // Expose the source map as a .map file if asked not to inline it
+              if (!options.sourceMapInlineSources) {
+                files[sourceMapFilepath] = sourceMapFile
+              }
+            }
+
+            return callback()
+          }
+        )
+      },
+      done
+    )
+  }
+}

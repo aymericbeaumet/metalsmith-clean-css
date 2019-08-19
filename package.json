@@ -1,32 +1,57 @@
 {
   "name": "metalsmith-clean-css",
-  "private": true,
-  "author": "Aymeric Beaumet <aymeric@beaumet.me>",
-  "extends": [
-    "config:js-lib",
-    "schedule:weekends",
-    ":automergeMinor",
-    ":automergeBranchPush",
-    ":semanticCommits",
-    ":rebaseStalePrs",
-    ":timezone(Europe/Paris)"
+  "version": "6.0.0",
+  "description": "A Metalsmith plugin to minify CSS files",
+  "keywords": [
+    "clean-css",
+    "css",
+    "metalsmith",
+    "minifier",
+    "plugin"
   ],
-  "workspaces": [
-    "packages/*"
-  ],
-  "license": "CC0-1.0",
-  "devDependencies": {
-    "ava": "0.25.0",
-    "codeclimate-test-reporter": "0.5.0",
-    "nyc": "11.4.1",
-    "standard": "10.0.3"
+  "homepage": "https://github.com/aymericbeaumet/metalsmith-clean-css",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aymericbeaumet/metalsmith-clean-css.git"
   },
+  "license": "MIT",
+  "author": {
+    "name": "Aymeric Beaumet",
+    "email": "hi@aymericbeaumet.com",
+    "url": "https://aymericbeaumet.com"
+  },
+  "files": [
+    "index.js"
+  ],
   "scripts": {
-    "build-example": "node packages/metalsmith-clean-css-example/build.js",
-    "test": "standard && nyc ava packages/metalsmith-clean-css/test && npm run build-example",
-    "test:watch": "ava packages/metalsmith-clean-css/test --watch",
-    "codeclimate": "nyc report --reporter=text-lcov | codeclimate-test-reporter",
-    "release": "yarn test && cd packages/metalsmith-clean-css && np --no-publish && npm publish && git push && git push --tags"
+    "format": "prettier --write \"{,.}**.{js,md,yml}\" && xo --fix",
+    "release": "yarn test && np",
+    "test": "prettier --check \"{,.}**.{js,md,yml}\" && xo && ava"
   },
-  "repository": "aymericbeaumet/metalsmith-clean-css"
+  "xo": {
+    "prettier": true
+  },
+  "prettier": {
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": false
+  },
+  "dependencies": {
+    "async": "3.1.0",
+    "minimatch": "3.0.4"
+  },
+  "devDependencies": {
+    "ava": "2.3.0",
+    "clean-css": "4.2.1",
+    "np": "5.0.3",
+    "prettier": "1.18.2",
+    "xo": "0.24.0"
+  },
+  "peerDependencies": {
+    "clean-css": "^4.1.9"
+  }
 }
