@@ -24,9 +24,9 @@
     "index.js"
   ],
   "scripts": {
-    "format": "prettier --write '{,.}**.{js,md,yml}' && xo --fix",
+    "format": "prettier --write \"{,.}**.{js,md,yml}\" && xo --fix",
     "release": "yarn test && np",
-    "test": "prettier --check '{,.}**.{js,md,yml}' && xo && ava"
+    "test": "prettier --check \"{,.}**.{js,md,yml}\" && xo && ava"
   },
   "dependencies": {
     "async": "3.1.0",
