@@ -11,6 +11,8 @@ npm install --save metalsmith-clean-css clean-css
 
 ## Usage
 
+### CLI
+
 **metalsmith.json**
 
 ```json
