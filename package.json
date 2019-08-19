@@ -3,11 +3,11 @@
   "version": "6.0.0",
   "description": "A Metalsmith plugin to minify CSS files",
   "keywords": [
-    "metalsmith",
-    "plugin",
-    "css",
     "clean-css",
-    "minifier"
+    "css",
+    "metalsmith",
+    "minifier",
+    "plugin"
   ],
   "homepage": "https://github.com/aymericbeaumet/metalsmith-clean-css",
   "repository": {
@@ -28,6 +28,18 @@
     "release": "yarn test && np",
     "test": "prettier --check \"{,.}**.{js,md,yml}\" && xo && ava"
   },
+  "xo": {
+    "prettier": true
+  },
+  "prettier": {
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": false
+  },
   "dependencies": {
     "async": "3.1.0",
     "minimatch": "3.0.4"
@@ -41,17 +53,5 @@
   },
   "peerDependencies": {
     "clean-css": "^4.1.9"
-  },
-  "prettier": {
-    "semi": false,
-    "useTabs": false,
-    "tabWidth": 2,
-    "trailingComma": "es5",
-    "singleQuote": true,
-    "bracketSpacing": true,
-    "jsxBracketSameLine": false
-  },
-  "xo": {
-    "prettier": true
   }
 }
