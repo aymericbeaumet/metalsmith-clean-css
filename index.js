@@ -25,9 +25,8 @@ module.exports = (options = {}) => {
 
     // Loop over all the files metalsmith knows of
     async.each(
-      Object.keys(files),
-      (filepath, callback) => {
-        const file = files[filepath]
+      Object.entries(files),
+      ([filepath, file], callback) => {
         const sourceMapFilepath = `${filepath}.map`
         const sourceMapFile = files[sourceMapFilepath] || { contents: '' }
         // Check whether the current file is concerned by the minification

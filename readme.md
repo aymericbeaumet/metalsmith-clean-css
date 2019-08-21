@@ -1,40 +1,43 @@
-# metalsmith-clean-css [![Build Status](https://travis-ci.org/aymericbeaumet/metalsmith-clean-css.svg?branch=master)](https://travis-ci.org/aymericbeaumet/metalsmith-clean-css)
+# metalsmith-clean-css
 
-> A Metalsmith plugin to minify CSS files
-
-## Install
-
-```sh
-npm install --save metalsmith-clean-css clean-css
-```
-
-## Usage
+[![npm](https://img.shields.io/npm/v/metalsmith-clean-css?style=flat-square)](https://www.npmjs.com/package/metalsmith-clean-css)
+[![Build](https://img.shields.io/travis/aymericbeaumet/metalsmith-clean-css?style=flat-square)](https://travis-ci.org/aymericbeaumet/metalsmith-clean-css)
+[![Dependencies](https://img.shields.io/david/aymericbeaumet/metalsmith-clean-css?style=flat-square)](https://david-dm.org/aymericbeaumet/metalsmith-clean-css)
+[![Issues](https://img.shields.io/github/issues/aymericbeaumet/metalsmith-clean-css?style=flat-square)](https://github.com/aymericbeaumet/metalsmith-clean-css/issues)
 
 This plugin allows you to minify your CSS files by leveraging
 [clean-css](https://github.com/jakubpawlowicz/clean-css).
 
+## Install
+
+```sh
+npm install metalsmith-clean-css clean-css
+```
+
+## Usage
+
 ### CLI
 
-**metalsmith.json**
+_metalsmith.json_
 
 ```json
 {
   "plugins": {
     "metalsmith-clean-css": {
-      "files": "src/**/*.css"
+      "files": "**/*.css"
     }
   }
 }
 ```
 
-### API
+### Node.js
 
 ```js
-var metalsmith = require('metalsmith')
-var metalsmithCleanCss = require('metalsmith-clean-css')
+const metalsmith = require('metalsmith')
+const metalsmithCleanCSS = require('metalsmith-clean-css')
 
 metalsmith(__dirname).use(
-  metalsmithCleanCss({
+  metalsmithCleanCSS({
     files: 'src/**/*.css',
     cleanCSS: {
       rebase: true,
@@ -43,7 +46,9 @@ metalsmith(__dirname).use(
 )
 ```
 
-**metalsmithCleanCss(options)**
+## API
+
+### metalsmithCleanCSS(options)
 
 #### options
 
