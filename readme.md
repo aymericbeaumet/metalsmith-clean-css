@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/metalsmith-clean-css?style=flat-square)](https://www.npmjs.com/package/metalsmith-clean-css)
 [![Build](https://img.shields.io/travis/aymericbeaumet/metalsmith-clean-css?style=flat-square)](https://travis-ci.org/aymericbeaumet/metalsmith-clean-css)
 [![Dependencies](https://img.shields.io/david/aymericbeaumet/metalsmith-clean-css?style=flat-square)](https://david-dm.org/aymericbeaumet/metalsmith-clean-css)
-[![Issues](https://img.shields.io/github/issues/aymericbeaumet/metalsmith-clean-css?style=flat-square)](https://github.com/aymericbeaumet/metalsmith-clean-css/issues)
+[![Issues](https://img.shields.io/github/issues/aymericbeaumet/metalsmith-clean-css?style=flat-square)](https://github.com/aymericbeaumet/metalsmith-clean-css/issues) [![Greenkeeper badge](https://badges.greenkeeper.io/aymericbeaumet/metalsmith-clean-css.svg)](https://greenkeeper.io/)
 
 This plugin allows you to minify your CSS files by leveraging
 [clean-css](https://github.com/jakubpawlowicz/clean-css).
