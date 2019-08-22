@@ -1,9 +1,8 @@
 # metalsmith-clean-css
 
-[![npm](https://img.shields.io/npm/v/metalsmith-clean-css?style=flat-square)](https://www.npmjs.com/package/metalsmith-clean-css)
-[![Build](https://img.shields.io/travis/aymericbeaumet/metalsmith-clean-css?style=flat-square)](https://travis-ci.org/aymericbeaumet/metalsmith-clean-css)
-[![Dependencies](https://img.shields.io/david/aymericbeaumet/metalsmith-clean-css?style=flat-square)](https://david-dm.org/aymericbeaumet/metalsmith-clean-css)
-[![Issues](https://img.shields.io/github/issues/aymericbeaumet/metalsmith-clean-css?style=flat-square)](https://github.com/aymericbeaumet/metalsmith-clean-css/issues)
+[![travis](https://img.shields.io/travis/aymericbeaumet/metalsmith-clean-css?style=flat-square&logo=travis)](https://travis-ci.org/aymericbeaumet/metalsmith-clean-css)
+[![github](https://img.shields.io/github/issues/aymericbeaumet/metalsmith-clean-css?style=flat-square&logo=github)](https://github.com/aymericbeaumet/metalsmith-clean-css/issues)
+[![npm](https://img.shields.io/npm/v/metalsmith-clean-css?style=flat-square&logo=npm)](https://www.npmjs.com/package/metalsmith-clean-css)
 
 This plugin allows you to minify your CSS files by leveraging
 [clean-css](https://github.com/jakubpawlowicz/clean-css).
