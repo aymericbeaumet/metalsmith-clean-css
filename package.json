@@ -25,34 +25,21 @@
     "lib/*"
   ],
   "scripts": {
-    "format": "prettier --write \"{,.}**.{js,md,yml}\" && xo --fix",
-    "test": "prettier --check \"{,.}**.{js,md,yml}\" && xo && ava"
-  },
-  "xo": {
-    "prettier": true
-  },
-  "prettier": {
-    "bracketSpacing": true,
-    "jsxBracketSameLine": false,
-    "semi": false,
-    "singleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "es5",
-    "useTabs": false
+    "format": "xo --fix",
+    "test": "xo && ava"
   },
   "dependencies": {
-    "async": "^3.1.0",
-    "minimatch": "^3.0.4"
+    "async": "3.2.0",
+    "minimatch": "3.0.4"
   },
   "devDependencies": {
-    "ava": "2.3.0",
-    "clean-css": "4.2.1",
+    "ava": "3.8.2",
+    "clean-css": "4.2.3",
     "metalsmith": "2.3.0",
-    "prettier": "1.18.2",
-    "rimraf": "3.0.0",
-    "xo": "0.24.0"
+    "rimraf": "3.0.2",
+    "xo": "0.30.0"
   },
   "peerDependencies": {
-    "clean-css": "^4.2.1"
+    "clean-css": "4.x.x"
   }
 }
